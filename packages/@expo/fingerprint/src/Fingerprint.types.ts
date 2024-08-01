@@ -114,6 +114,7 @@ export type Config = Pick<
   Options,
   | 'concurrentIoLimit'
   | 'hashAlgorithm'
+  | 'ignorePaths'
   | 'extraSources'
   | 'sourceSkips'
   | 'enableReactImportsPatcher'
