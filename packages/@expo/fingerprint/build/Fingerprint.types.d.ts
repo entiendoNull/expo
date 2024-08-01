@@ -94,7 +94,7 @@ export interface Options {
 /**
  * Supported options from fingerprint.config.js
  */
-export type Config = Pick<Options, 'concurrentIoLimit' | 'hashAlgorithm' | 'extraSources' | 'sourceSkips' | 'enableReactImportsPatcher' | 'debug'>;
+export type Config = Pick<Options, 'concurrentIoLimit' | 'hashAlgorithm' | 'ignorePaths' | 'extraSources' | 'sourceSkips' | 'enableReactImportsPatcher' | 'debug'>;
 export interface NormalizedOptions extends Options {
     platforms: NonNullable<Options['platforms']>;
     concurrentIoLimit: NonNullable<Options['concurrentIoLimit']>;

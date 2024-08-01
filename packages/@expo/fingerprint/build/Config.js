@@ -36,6 +36,7 @@ async function loadConfigAsync(projectRoot, silent = false) {
     const supportedConfigKeys = [
         'concurrentIoLimit',
         'hashAlgorithm',
+        'ignorePaths',
         'extraSources',
         'sourceSkips',
         'enableReactImportsPatcher',
