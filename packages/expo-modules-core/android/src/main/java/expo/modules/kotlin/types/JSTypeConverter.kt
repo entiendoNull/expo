@@ -54,6 +54,38 @@ object JSTypeConverter {
     }
   }
 
+  @JvmStatic
+  fun isConvertible(value: Any?): Boolean {
+    return when (value) {
+      null, is Unit -> true
+      is Bundle -> true
+      is Array<*> -> true
+      is IntArray -> true
+      is FloatArray -> true
+      is DoubleArray -> true
+      is BooleanArray -> true
+      is ByteArray -> true
+      is Map<*, *> -> true
+      is Enum<*> -> true
+      is Record -> true
+      is URI -> true
+      is URL -> true
+      is Uri -> true
+      is File -> true
+      is Pair<*, *> -> true
+      is Long -> true
+      is Int -> true
+      is String -> true
+      is Float -> true
+      is Double -> true
+      is Boolean -> true
+      is RawTypedArrayHolder -> true
+      is Iterable<*> -> true
+      else -> false
+    }
+  }
+
+  @JvmStatic
   fun convertToJSValue(value: Any?, containerProvider: ContainerProvider = DefaultContainerProvider): Any? {
     return when (value) {
       null, is Unit -> null

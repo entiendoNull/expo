@@ -20,6 +20,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import expo.modules.kotlin.types.JSTypeConverter;
 import expo.modules.notifications.notifications.interfaces.NotificationTrigger;
 import expo.modules.notifications.notifications.model.Notification;
 import expo.modules.notifications.notifications.model.NotificationContent;
@@ -235,8 +236,9 @@ public class NotificationSerializer {
       serializedContent.putString("body", extras.getString("message"));
     } else {
       // The notification came directly from Firebase or some other service,
-      // so we copy the data as is from the extras bundle
-      serializedContent.putBundle("data", extras);
+      // so we copy the data as is from the extras bundle, after
+      // ensuring it can be converted to a WritableMap
+      serializedContent.putBundle("data", filteredBundleForWritableMap(extras));
     }
 
     Bundle serializedTrigger = new Bundle();
@@ -271,5 +273,18 @@ public class NotificationSerializer {
     }
     return true;
   }
+
+  public static Bundle filteredBundleForWritableMap(Bundle bundle) {
+    Bundle result = new Bundle();
+    result.putAll(bundle);
+    for (String key: bundle.keySet()) {
+      Object o = bundle.get(key);
+      if (!JSTypeConverter.isConvertible(o)) {
+        result.remove(key);
+      }
+    }
+    return result;
+  }
+
 
 }
