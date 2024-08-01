@@ -6,11 +6,14 @@
 
 ### 🎉 New features
 
+- Added `ignorePaths` support to `fingerprint.config.js`. ([#30768](https://github.com/expo/expo/pull/30768) by [@kudo](https://github.com/kudo))
+
 ### 🐛 Bug fixes
 
 ### 💡 Others
 
 - Upgrade `glob@7` to `glob@10`. ([#29927](https://github.com/expo/expo/pull/29927) by [@byCedric](https://github.com/byCedric))
+- Ignored nested node_modules by default. ([#30768](https://github.com/expo/expo/pull/30768) by [@kudo](https://github.com/kudo))
 
 ## 0.10.2 - 2024-07-22
 
